@@ -305,11 +305,16 @@
                 <li><a href="{{url('/' . $page='cart')}}" class="slide-item"> Shopping Cart</a></li>
             </ul>
         </li>
-        <li class="side-item side-item-category">Custom  & Error Pages</li>
+        <li class="side-item side-item-category">Configurações</li>
+        <li class="slide">
+            <a class="side-menu__item"  href="{{url('/' . $page='index')}}">
+            <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z"/></svg>
+            <span class="side-menu__label">Tipos Equipamentos</span><span class="badge badge-danger side-badge">Hot</span></a>
+        </li>
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#')}}">
             <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M14.25 2.26l-.08-.04-.01.02C13.46 2.09 12.74 2 12 2 6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-4.75-3.31-8.72-7.75-9.74zM19.41 9h-7.99l2.71-4.7c2.4.66 4.35 2.42 5.28 4.7zM13.1 4.08L10.27 9l-1.15 2L6.4 6.3C7.84 4.88 9.82 4 12 4c.37 0 .74.03 1.1.08zM5.7 7.09L8.54 12l1.15 2H4.26C4.1 13.36 4 12.69 4 12c0-1.85.64-3.55 1.7-4.91zM4.59 15h7.98l-2.71 4.7c-2.4-.67-4.34-2.42-5.27-4.7zm6.31 4.91L14.89 13l2.72 4.7C16.16 19.12 14.18 20 12 20c-.38 0-.74-.04-1.1-.09zm7.4-3l-4-6.91h5.43c.17.64.27 1.31.27 2 0 1.85-.64 3.55-1.7 4.91z"/></svg>
-            <span class="side-menu__label">Custom Pages</span><i class="angle fa fa-angle-right"></i></a>
+            <span class="side-menu__label">Tipo</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
                 <li class="sub-slide">
                     <a class="sub-side-menu__item" data-toggle="sub-slide" href="{{ url('/' . $page='#')}}"><span class="sub-side-menu__label">Register</span><i class="sub-angle fe fe-chevron-down"></i></a>

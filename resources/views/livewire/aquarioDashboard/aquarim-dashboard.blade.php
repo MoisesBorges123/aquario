@@ -26,7 +26,7 @@
     <div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
         <div class="card overflow-hidden dash1-card border-0">
             <div class="card-body">
-                <p class=" mb-1 ">Total Sales</p>
+                <p class=" mb-1 ">Nome do aquario:{{Session::get('aquarium.name')}}</p>
                 <h2 class="mb-1 number-font">$3,257</h2>
                 <small class="fs-12 text-muted">Compared to Last Month</small>
                 <span class="ratio bg-warning">76%</span>
@@ -77,43 +77,7 @@
 <!-- Row-2 -->
 <div class="row">
     <div class="col-xl-8 col-lg-8 col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Equipamentos Instalados</h3>
-                <div class="card-options">
-                    <a href="{{url('/' . $page='#')}}" class="option-dots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-horizontal fs-20"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{{url('/' . $page='#')}}">Novo Equipamento</a>
-                        
-                    </div>
-                </div>
-                   
-            </div>
-            <div class="card-body p-0">
-                @if($equipments->count())
-
-                <div class="table-responsive">
-                    <table class="table table-striped card-table table-vcenter text-nowrap">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Potência</th>
-                                <th>Saúde</th>
-                                <th>Tempo de uso</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                       <tbody>
-                          
-                       </tbody>
-                    </table>
-                </div><!-- bd -->
-                @else
-                <div class="alert alert-info" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Você não tem nenhum equipamento relacionado a esse aquário.</div>
-                @endif
-            </div><!-- bd -->
-        </div>
+        <livewire:equipments.equipment>
     </div>
     <div class="col-xl-4 col-lg-4 col-md-12">
         <div class="card">

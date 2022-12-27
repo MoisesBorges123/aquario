@@ -6,8 +6,9 @@ use App\Http\Livewire\Aquarium as LivewireAquarium;
 use Livewire\Component;
 use App\Models\Aquarium;
 use App\Models\AquariumCleanning;
-use App\Models\Equiment;
+
 use App\Models\EquimentCleanning;
+use Illuminate\Support\Facades\Session;
 
 class AquarimDashboard extends Component
 {
@@ -15,8 +16,21 @@ class AquarimDashboard extends Component
 
     public function mount($id){
         $this->aquarium = Aquarium::where('id',$id)->first();
+        if(!empty($this->aquarium))
+        {
+            Session::forget('aquarium');
+            Session::put('aquarium',[
+                                        'id'=>$id,
+                                        'name'=>$this->aquarium->name,
+                                        'literage'=>$this->aquarium->literage,
+                                        'planted'=>$this->aquarium->planted,
+                                        'fresh_water'=>$this->aquarium->fresh_water,
+
+                                    ]);
+
+        }
         $this->aquariumCleannings = AquariumCleanning::get();
-        $this->equipments = Equiment::get();
+        
     }
 
     public function render()

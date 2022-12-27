@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TypeEquipment extends Model
 {
     use HasFactory;
-    protected $table = "type_equiments";
+    protected $table = "type_equipments";
     public $fillale = [
         'name',
         'maintenance_time'
