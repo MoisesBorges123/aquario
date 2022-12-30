@@ -44,6 +44,13 @@
                             @error('bought') <span class="text-danger error">{{ $message }}</span> @enderror
                         </div>                      
                     </div>               
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Preço<span class="text-red">*</span></label>
+                            <input type="text" class="form-control" wire:model="price" name='price'>
+                            @error('bought') <span class="text-danger error">{{ $message }}</span> @enderror
+                        </div>                      
+                    </div>               
                     
                 </div>
                 <div class="row">
@@ -54,7 +61,8 @@
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <x-buttons.button-primary wire:loading.attr='disabled'  wire:loading wire:target="store" :disabled="$disabled">Salvar</x-buttons.button-primary>                
+                            <button  type='submit' class="btn btn-primary">Salvar</button>
+                           <!-- <x-buttons.button-primary wire:loading.attr='disabled'  wire:loading wire:target="store" :disabled="$disabled">Salvar</x-buttons.button-primary> -->               
                         </div>
                     </div>                    
                 </div>

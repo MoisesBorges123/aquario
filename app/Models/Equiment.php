@@ -12,7 +12,7 @@ class Equiment extends Model
     public $fillable = [
         'name',
         'type_equipment_id',
-        'aquarim_id',
+        'aquarium_id',
         'potency',
         'bought',
         'value'

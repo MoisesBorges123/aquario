@@ -80,43 +80,7 @@
         <livewire:equipments.equipment>
     </div>
     <div class="col-xl-4 col-lg-4 col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Limpezas</h3>
-                <div class="card-options">
-                    <a href="{{url('/' . $page='#')}}" class="option-dots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-horizontal fs-20"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{{url('/' . $page='#')}}">Registrar Limpeza</a>
-                        <a class="dropdown-item" href="{{url('/' . $page='#')}}">Ver mais</a>
-                        <a class="dropdown-item" href="{{url('/' . $page='#')}}">Last Month</a>
-                        <a class="dropdown-item" href="{{url('/' . $page='#')}}">Last Year</a>
-                    </div>
-                </div>
-            </div>
-            @if(!empty($aquariumCleannings[0]))
-            <div class="card-body">
-                <div class="latest-timeline scrollbar3" id="scrollbar3">
-                    <ul class="timeline mb-0">
-                        @foreach($aquariumCleannings as $aquariumCleanning)
-                            <li class="mt-0">
-                                <div class="d-flex"><span class="time-data">Task Finished</span><span class="ml-auto text-muted fs-11">09 June 2020</span></div>
-                                <p class="text-muted fs-12"><span class="text-info">Joseph Ellison</span> finished task on<a href="{{url('/' . $page='#')}}" class="font-weight-semibold"> Project Management</a></p>
-                            </li>
-                        @endforeach                        
-                        
-                    </ul>
-                </div>
-            </div>
-            @else
-            <div class="card-body">
-                <div class="latest-timeline scrollbar3" id="scrollbar3">
-                    <div class="alert alert-info" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><p class='fs-20'>Ops! Não encontramos nenhum registro :<span class='text-danger'>( </span></p><p>Ainda não foi registrado nenhuma limpeza para esse aquário, caso realmente você não tenha limpado o seu aquário, por favor faça a TPA urgentemente e <button class='btn btn-pill btn-warning'>registre aqui</button> a limpeza realizada </p></div>                    
-                    
-                </div>
-            </div>
-            @endif
-            
-        </div>
+        <livewire:cleanings.cleaning>
     </div>
 </div>
 <!-- End Row-2 -->

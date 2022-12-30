@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\{    
     Dashboard,
     Aquarium,
-    AquarimDashboard 
+    AquarimDashboard,
+    TypeEquipment\TypeEquipment
 };
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,5 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/dashboard',Dashboard::class)->name('dashboad');
     Route::get('/aquario',Aquarium::class)->name('aquarium');
     Route::get('/aquario-dashboard/{id}',AquarimDashboard::class)->name('aquariumDashboard');
+    Route::get('/tipo-de-equipamento',TypeEquipment::class)->name('typeEquipment');
 });

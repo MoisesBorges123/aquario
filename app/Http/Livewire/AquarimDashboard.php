@@ -5,14 +5,14 @@ namespace App\Http\Livewire;
 use App\Http\Livewire\Aquarium as LivewireAquarium;
 use Livewire\Component;
 use App\Models\Aquarium;
-use App\Models\AquariumCleanning;
+
 
 use App\Models\EquimentCleanning;
 use Illuminate\Support\Facades\Session;
 
 class AquarimDashboard extends Component
 {
-    public $aquarium, $aquariumCleannings, $equipments;
+    public $aquarium, $equipments;
 
     public function mount($id){
         $this->aquarium = Aquarium::where('id',$id)->first();
@@ -26,10 +26,11 @@ class AquarimDashboard extends Component
                                         'planted'=>$this->aquarium->planted,
                                         'fresh_water'=>$this->aquarium->fresh_water,
 
-                                    ]);
+                                    ]
+                        );
 
         }
-        $this->aquariumCleannings = AquariumCleanning::get();
+        
         
     }
 

@@ -1,5 +1,7 @@
 window._ = require('lodash');
+require('jquery');
 
+import Swal from 'sweetalert2';
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -10,19 +12,53 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  
+ 
 
-// import Echo from 'laravel-echo';
 
-// window.Pusher = require('pusher-js');
+document.addEventListener('livewire:load', () => {
+    Livewire.on('swal', function (message,type) {
+        Swal.fire({
+            icon: type,
+            html: message,
+            showCancelButton: true,
+        }).then(function (result) {
+            if (result.isConfirmed) {
+                if(type=='delete')
+                    livewire.emit('delete')
+                else if(type=='question')
+                    livewire.emit('confirm')
+            }
+        })
+    });
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });
+    Livewire.on('toast', (message,type) => {
+        Toast.fire({
+            icon: type,
+            title: message,
+          })      
+    });
+    Livewire.on('swal-delete', function (message,type,eventEmit,id) {
+        Swal.fire({
+            icon: type,
+            html: message,
+            showCancelButton: true,
+        }).then(function (result) {
+            if (result.isConfirmed) {               
+                livewire.emit(eventEmit,id)                
+            }
+        })
+    });
+
+});

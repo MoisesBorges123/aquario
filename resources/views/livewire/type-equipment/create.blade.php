@@ -1,16 +1,50 @@
-<div>
-    <div class="card">
-        <div class="card-head">
-            <h2 class="card-title">Novo Tipo de equipamento</h2>
-        </div>
-        <div class="card-body">
-            <form action="">
-                <div class="row">
-                    <div class="col-12">
-                        
+@php
+    $disabled = $errors->any() || empty($this->name) ? true : false;
+@endphp
+
+<div class="row justify-content-center">
+    
+    <div class="col-8">
+        
+        <div class="card">
+            <div class="card-header">
+                <h6 class="modal-title">Novo Tipo de Equipamento</h6>
+            </div>
+            <div class="card-body">
+                <form wire:submit.prevent="store" method="POST">
+                    <div class="form">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="form-label text-left"><b>Nome</b></label>                                
+                                <input type="text" class="form-control  @error('name') is-invalid @enderror" wire:model="name" id="name" name='name' placeholder="Nome"> 
+                                @error('name') <span class="text-danger error">{{ $message }}</span> @enderror
+                            </div>
+                        </div>
+                    </div>                                                           
+                    <div class="form">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="form-label text-left"><b>Manutenção</b></label>                                
+                                <input type="text" class="form-control  @error('name') is-invalid @enderror" wire:model="maintenance_time" id="maintenance_time" name='maintenance_time' placeholder="Dias"> 
+                                @error('maintenance_time') <span class="text-danger error">{{ $message }}</span> @enderror
+                            </div>
+                        </div>
+                    </div>                                                           
+                    
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <button class="btn btn-secondary" wire:click="$emit('goToIndexTypeEquipment')" type="button">Sair</button>
+
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-primary" wire:click="store" type="submit">Salvar</button>
+
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>

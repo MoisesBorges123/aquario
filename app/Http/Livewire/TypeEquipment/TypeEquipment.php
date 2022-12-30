@@ -7,7 +7,12 @@ use Livewire\Component;
 class TypeEquipment extends Component
 {
     public $selectedId, $window='list';
-    
+    public $listeners = [
+        'deleteTypeEquipment'=>'delete',
+        'editTypeEquipment'=>'edit',
+        'newTypeEquipment'=>'create',
+        'goToIndexTypeEquipment'=>'list'
+    ];
     public function mount()
     {
         
@@ -26,13 +31,13 @@ class TypeEquipment extends Component
     }
     public function edit($id)
     {
-        $this->window  = 'edit';
         $this->selectedId=$id;
+        $this->window  = 'edit';
     }
     public function delete($id)
     {
-        $this->window = 'delete';
         $this->selectedId=$id;
+        $this->window = 'delete';
     }
 
 }

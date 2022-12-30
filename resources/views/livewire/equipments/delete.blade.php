@@ -1,0 +1,18 @@
+<div>  
+    @if($deletado=='deletando')
+    <x-alerts.deletequestion action='destroy'>
+        <x-slot name='texto'>Tem certeza que deseja excluir esse equipamento?</x-slot>
+        <x-slot name='texto2'>Se você excluir esse equipamento ele não será relacionado ao seu aquario.</x-slot>       
+    </x-alerts.deletequestion>
+    @elseif($deletado=='deletado')
+    <x-alerts.deleteconfirm action='$emit("equipment.index")'>
+        <x-slot name='texto'><b>Tudo Pronto!!</b> O equipamento foi excluido com sucesso.</x-slot>
+        <x-slot name='texto2'>Já alteramos a sua lista de equipamentos, está pronto para voltar aos trabalhos. ;)</x-slot>
+    </x-alerts.deleteconfirm>
+    @elseif($deletado == 'erro')
+    <x-alerts.deletealert action='$emit("equipment.index")'>
+        <x-slot name='texto'><b>Ops!!</b> Encontramos um erro ao excluir esse registro.</x-slot>
+        <x-slot name='texto2'>Não foi possível excluir esse registro, por favor contate o desenvolvedor.</x-slot>
+    </x-alerts.deletealert>
+    @endif
+</div>

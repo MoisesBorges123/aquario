@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "compass-mixins": "^0.12.11",
-        "sweetalert2": "^11.4.17"
+        "jquery": "^3.6.3",
+        "sweetalert2": "^11.6.16"
     }
 }
